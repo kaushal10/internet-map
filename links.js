@@ -2,7 +2,7 @@
 var cheerio = require('cheerio');
 var URL = require('url-parse');
 var allAbsoluteLinks=[];
-var last=0,pos=0,molecules=0,flagUndefined=0,p;
+var last=0,pos=0,molecules=0,flagUndefined=0,p,flag1=0;
 var arr=[];
 var titles=[];
 var ans = [];
@@ -28,6 +28,7 @@ var edges = [];
   var pageToVisit1=pageToVisit;
   //molecules=document.getElementById("id2").value;
   molecules=parseInt(molecule);
+  p=document.getElementById("id1").innerHTML;
   titles.push("something");
 
 var c=0,a=0;
@@ -71,7 +72,7 @@ $.getJSON(yql, function(body)
 
 function fun1()
 {
-  for (i=0;i<molecules;i++)
+  for (i=0;i<10;i++)
   {
     pageToVisit=arr[i];
     var yql = 'http://query.yahooapis.com/v1/public/yql?q=' + 
@@ -174,10 +175,10 @@ encodeURIComponent('select * from html where url="' + pageToVisit + '"') + '&for
   console.log("Found " + allRelativeLinks.length + " relative links");
   console.log("Found " + allAbsoluteLinks.length + " absolute links");
   //console.log("relativeLinks are ");
-  p+="Found " + allRelativeLinks.length + " relative links<br>" 
-  p+="Found " + allAbsoluteLinks.length + " absolute links<br>"
+  //p+="Found " + allRelativeLinks.length + " relative links<br>" 
+  //p+="Found " + allAbsoluteLinks.length + " absolute links<br>"
   console.log("\n\n\n");
-  p+="<br><br><br>";
+  //p+="<br><br><br>";
   //document.getElementById("id2").innerHTML=p;
   //DELAY
   //for (j=0;j<1000;j++)
@@ -195,27 +196,23 @@ encodeURIComponent('select * from html where url="' + pageToVisit + '"') + '&for
     //data1.each(function() {
       //arr.push($(this));});
     //console.log(data);
+
+    if (arr.length>=200 && flag1==0)
+    {
+      for (i=0;i<200;i++)
+      {
+        p+="<a href=\""+arr[i]+"\">"+arr[i]+"</a>";
+        p+="</br>";
+      }
+      document.getElementById("id1").innerHTML=p;
+      flag1+=1;
+
+    }
 }
 
 
 
-window.clear1=function()
-{
-  console.log("i was called");
-  document.getElementById("paper").innerHTML="";
-  edges=[];
-  arr=[];
-  ans=[];
-  titles=[];
-  pos=0;
-  console.log(document.getElementById("id2").value);
-  document.getElementById("id1").value="";
-  document.getElementById("id2").value=0;
-  console.log(document.getElementById("id2").value);
-  var input = document.getElementById('id2');
-  input.value; 
-  input.setAttribute('value', input.value);
-}
+
 
 
 

@@ -1,14 +1,75 @@
 <html>
 <head>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script> 
-<link rel="stylesheet" href="style.css">
-<h1>The Internet Map</h1>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script> 
+	<link rel="stylesheet" href="style.css">
+	<script type="text/javascript" src="vis.js"></script>
+  <link href="styleVis.css" rel="stylesheet" type="text/css" />
+	<h1>The Internet Map</h1>
+	<title>The Internet Map</title>
 </head>
 <body>
-<h6>Enter The ROOT seed here : </h6>
-<input type="etxt" id="id1"></input>
-<input type="button" value="GET" onclick="fun2()"></input>
-<p id="id2">Links will appear here :</p>
-<script type="text/javascript" src="C:\Users\MAHE\Desktop\txts\bundle1.js"></script>
+	<!--<p id="id2"></p>-->
+	<div style="float:left;">	
+		<input type="button" class="myButton" value="Clear" onclick="clear1()"></input>
+		<input type="button" class="myButton" value="graph" onclick="graph()"></input>
+		<input type="button" class="myButton" value="links" onclick="links1()"></input>
+		</br>
+		<h6>Enter The ROOT seed here : </h6>
+		<input type="text" id="id1"></input></br></br>
+		<h6>Enter Number of nodes here : </h6>
+		<input type="number" id="id2"></input>
+		<!--<a href="C:\Users\MAHE\Desktop\txts\graph1.html" target="_blank">Graph</a>-->
+	</div>	
+	<!--<script type="text/javascript" src="C:\Users\MAHE\Desktop\txts\bundle1.js"></script>
+	<script type="text/javascript" src="C:\Users\MAHE\Desktop\txts\bundle.js"></script>-->
+	<script type="text/javascript">
+  window.displayGraph=function (nodes, edges,arr)
+  {
+  // var k=1+2;
+  // var str = "[{\"id\": 1, \"label\": \"Node 1\"}, {\"id\": 2, \"label\": \"Node 2\"}, {\"id\": 3, \"label\": \"Node 3\"}, {\"id\": 4, \"label\": \"Node 4\"}, {\"id\": 5, \"label\": \"Node 5\"}]";
+  var nodesToDisp = new vis.DataSet(nodes);
+
+  // create an array with edges
+  var edges = new vis.DataSet(edges);
+
+  // create a network
+  var container = document.getElementById('paper');
+  var data = {
+    nodes: nodes,
+    edges: edges
+  };
+  var options = {};
+  var network = new vis.Network(container, data, options);
+  network.on("doubleClick", function (params) {
+        //params.event = "[original event]";
+        //document.getElementById('eventSpan').innerHTML = '<h2>Click event:</h2>' + JSON.stringify(params, null, 4);
+        console.log(params.nodes[0]);
+        var clickURL=params.nodes[0];
+        window.open(arr[clickURL],'_blank');
+    
+    });
+}
+function graph()
+{
+	console.log(document.getElementById("id2").value);
+	var a=document.getElementById("id1").value;
+	var b=document.getElementById("id2").value;
+	window.open("TheGraph.html?seed="+a+"&molecule="+b);
+}
+function links1()
+{
+	var a=document.getElementById("id1").value;
+	var b=document.getElementById("id2").value;
+	window.open("links.html?seed="+a+"&molecule="+b);
+}
+window.clear1=function()
+{
+  console.log("i was called");
+  document.getElementById("id1").value="";
+  document.getElementById("id2").value=0;
+}
+
+</script>
+
 </body>
 </html>

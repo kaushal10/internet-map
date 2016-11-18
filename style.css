@@ -1,0 +1,75 @@
+h1
+{
+	color: lightgreen;
+	font-size: 50;
+	text-align: center;
+}
+body
+{
+	background-color: black;
+	background-image: url("inm1.PNG");
+}
+h6
+{
+	color: #7c795d;
+	font-family: sans-serif;
+	font-size: 16;
+	float: right;
+	margin: 20px;
+	left: 40px;
+	padding: 10px;
+  	border: solid 1px #fff;
+  	box-shadow: inset 1px 1px 2px 0 #707070;
+}
+p,a
+{
+	font-size: 20;
+	color: white;
+	
+}
+input
+{
+	float: right;
+	margin: 20px;
+	left: 40px;
+	padding: 10px;
+  	border: solid 1px #fff;
+  	box-shadow: inset 1px 1px 2px 0 #707070;
+
+}
+input[type="button"]
+{
+	position: relative;
+	margin: 50px;
+	left: 30px;
+	top :20px;
+	background-size: 20px;
+	padding: 20px;
+}
+
+.myButton {
+	-moz-box-shadow: 0px 0px 0px 2px #000000;
+	-webkit-box-shadow: 0px 0px 0px 2px #000000;
+	box-shadow: 0px 0px 0px 2px #000000;
+	background-color:#7892c2;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	border:1px solid #4e6096;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:19px;
+	padding:12px 37px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #283966;
+}
+.myButton:hover {
+	background-color:#476e9e;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
